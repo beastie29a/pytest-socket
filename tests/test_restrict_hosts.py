@@ -142,6 +142,10 @@ def test_single_cli_arg_connect_enabled(assert_connect):
     assert_connect(True, cli_arg=localhost)
 
 
+def test_single_cli_arg_connect_enabled_none_host(assert_connect):
+    assert_connect(True, cli_arg=None)
+
+
 def test_single_cli_arg_connect_enabled_localhost_resolved(assert_connect):
     assert_connect(True, cli_arg="localhost")
 

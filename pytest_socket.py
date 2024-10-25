@@ -278,8 +278,10 @@ def socket_allow_hosts(
 
     def guarded_connect(inst, *args):
         host = host_from_connect_args(args)
-        if host in allowed_ip_hosts_and_hostnames or (
-            _is_unix_socket(inst.family) and allow_unix_socket
+        if (
+            host in allowed_ip_hosts_and_hostnames
+            or (_is_unix_socket(inst.family) and allow_unix_socket)
+            or host is None
         ):
             return _true_connect(inst, *args)
 
